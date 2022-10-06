@@ -2,6 +2,7 @@
 // The current hour represented as a number (military time).
 var currentHour = Number(moment().format("H"));
 var saveButton = $("img");
+var darkmode = false;
 
 // FUNCTIONS
 // Iterates 9 times where i is the hour we are checking, adjusts the color for each accordingly.
@@ -53,4 +54,24 @@ loadTodo();
 saveButton.on("click", saveTodo)
 
 // Lines of executable code: 30;
+
+// DARKMODE
+
+var themeSwitch = $("#theme-switch");
+themeSwitch.on("click", function() {
+    // Body
+    if (!darkmode) {
+        $("body").css("background-color", "black");
+        $("h1, p, div").css("color", "white");
+        $("div .hour").css("background-color", "black");
+        $("button").text("Light Mode");
+        darkmode = true;
+    } else {
+        $("body").css("background-color", "white");
+        $("h1, p, div").css("color", "black");
+        $("div .hour").css("background-color", "white");
+        $("button").text("Dark Mode");
+        darkmode = false;
+    }
+})
 

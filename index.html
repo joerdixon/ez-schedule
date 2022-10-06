@@ -19,11 +19,11 @@
     <title>EZ Schedule</title>
   </head>
   <body>
-    <header class="jumbotron text-center">
-      <h1 class="display-3">EZ Schedule</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
-      <p id="current-day" class="lead"></p>
-      <p id="current-time" class="lead"></p>
+    <header class="text-center" id='jumbotron'>   
+        <h1 class="display-3">EZ Schedule</h1>
+        <p id="current-day" class="lead"></p>
+        <p class="lead">A simple calendar app for scheduling your work day</p>
+        <p id="current-time" class="lead"></p>
     </header>
     <div class="container">
       <!-- 9am -->
@@ -81,6 +81,7 @@
         <div class='col-1 saveBtn'><img src="./assets/images/save-icon.svg"></div>
       </div>
     </div>
+    <button id="theme-switch">Dark Mode</button>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src='./assets/scripts/script.js'></script>
