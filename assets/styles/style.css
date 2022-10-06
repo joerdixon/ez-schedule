@@ -27,6 +27,10 @@ body {
 
   /* Time Block Styling */
 
+  .timeblock {
+    border-radius: 15px;
+  }
+
   .row {
     white-space: pre-wrap;
     height: 80px;
