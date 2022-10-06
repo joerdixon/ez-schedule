@@ -6,11 +6,7 @@ var currentTime;
 
 // The current hour represented as a number (military time).
 var currentHour = Number(moment().format("H"));
-
-// DOM SELECTORS
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-var saveButton = $("i");
+var saveButton = $("img");
 
 // FUNCTIONS
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -29,24 +25,25 @@ function setColors() {
 }
 
 // A function that checks local storage for any previously saved todos and adds them back to the appropriate hour.
-    /* 
-    On page load,
-    for each hour
-    if localStorage.getItem("i(thehourwearechecking)" !== null)
-        hour.textContent(savedContent)
-    */
+function loadTodo() {
+    for (var i = 8; i < 18; i++) {
+        if (localStorage.getItem(i) !== null) {
+            let storedTodo = localStorage.getItem(i);
+            let currentTodo = $("[data-hour='"+ i +"']");
+            currentTodo[0].children[1].value = JSON.parse(storedTodo).content;
+        }
+    }
+}
 
 
 // A function that, when the save button is clicked, will commit the text within that hour to the local storage.
-
 function saveTodo(event) {
     // Saves the data-hour attribute of the save button selected
-    var hourLine = event.target.parentElement.parentElement.getAttribute("data-hour");
+    let hourLine = event.target.parentElement.parentElement.getAttribute("data-hour");
     // Saves the actual content of the box as a string
-    var hourContent = event.target.parentElement.parentElement.children[1].content;
-    // hourContent = hourContent.val();
-    console.log(hourLine);
-    console.log(hourContent);
+    let hourContent = event.target.parentElement.parentElement.children[1].value;
+    // Stringify the content and data-hour together
+    localStorage.setItem(hourLine, JSON.stringify({hour: hourLine, content: hourContent}));
 }
 
 // EVENT LISTENERS
@@ -58,7 +55,7 @@ saveButton.on("click", saveTodo)
 // MAIN PROGRAM
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// Every second we will update the world clock as well as the color of each section.
+// Every second we will update the world clock as well as the color of each section, then load any todos.
 setInterval(
     function() {
         currentDate = moment().format("MMM Do, YYYY");
@@ -67,3 +64,4 @@ setInterval(
         $("#current-time").text(currentTime);
         setColors();
     }, 1000);
+    loadTodo();

@@ -68,12 +68,22 @@ body {
     border-bottom-right-radius: 15px;
     background-color: #06AED5;
     color: white;
+    /* width: 25%; */
+    height: auto;
+    /* Flex Settings */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .saveBtn img {
+
   }
 
   /* Save Button Hover Effect */
   
-  .saveBtn i:hover {
-    font-size: 20px;
+  .saveBtn img:hover {
+    width: 160%;
     transition: all .3s ease-in-out;
   }
 
