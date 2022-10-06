@@ -91,7 +91,8 @@ textarea {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    height: 30vh;
+    height: 32vh;
+    margin-bottom: 5vh;
 }
 
 #jumbotron p, #jumbotron h1 {
@@ -104,10 +105,10 @@ textarea {
 #current-time {
     font-family: "lucida console";
     font-size: 2rem;
-    color: deeppink;
-}
+  }
 
 #current-day {
-    font-family: "lucida console";
+    /* font-family: "lucida console"; */
     font-size: 2rem;
+    font-weight: 400;
 }
