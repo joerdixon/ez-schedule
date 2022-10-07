@@ -75,6 +75,7 @@ textarea {
   .saveBtn img:hover {
     width: 160%;
     transition: all 2s ease-in-out;
+    cursor: pointer;
   }
 
 #theme-switch {

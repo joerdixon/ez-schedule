@@ -56,7 +56,6 @@ saveButton.on("click", saveTodo)
 // Lines of executable code: 30;
 
 // DARKMODE
-
 var themeSwitch = $("#theme-switch");
 themeSwitch.on("click", function() {
     // Body
@@ -74,4 +73,6 @@ themeSwitch.on("click", function() {
         darkmode = false;
     }
 })
+
+
 
